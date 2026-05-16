@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>n8n licensing — do I need an Enterprise license?</title>
+<title>What can I do with n8n Community License?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -27,6 +27,7 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 .pg-head{margin-bottom:1.75rem}
 .pg-head h1{font-size:1.25rem;font-weight:600;color:var(--g900);margin-bottom:.3rem;line-height:1.35}
 .pg-head p{font-size:.875rem;color:var(--g600);line-height:1.55}
+.pg-head a{color:var(--pink-dark);text-decoration:underline}
 .prog-wrap{margin-bottom:1.5rem}
 .prog-lbl{display:flex;justify-content:space-between;font-size:.75rem;color:var(--g400);margin-bottom:.4rem}
 .prog-track{height:4px;background:var(--g200);border-radius:2px;overflow:hidden}
@@ -66,21 +67,21 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 <body>
 <div class="topbar">
   <div class="logo">
-    <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-      <rect width="40" height="40" rx="8" fill="#ea4b71"/>
-      <circle cx="20" cy="20" r="4.5" fill="white"/>
-      <circle cx="20" cy="9" r="3" fill="white"/>
-      <circle cx="29.5" cy="14.5" r="3" fill="white"/>
-      <circle cx="29.5" cy="25.5" r="3" fill="white"/>
-      <circle cx="20" cy="31" r="3" fill="white"/>
-      <circle cx="10.5" cy="25.5" r="3" fill="white"/>
-      <circle cx="10.5" cy="14.5" r="3" fill="white"/>
-      <line x1="20" y1="12" x2="20" y2="15.5" stroke="white" stroke-width="1.5"/>
-      <line x1="26.9" y1="16.1" x2="24.1" y2="17.7" stroke="white" stroke-width="1.5"/>
-      <line x1="26.9" y1="23.9" x2="24.1" y2="22.3" stroke="white" stroke-width="1.5"/>
-      <line x1="20" y1="28" x2="20" y2="24.5" stroke="white" stroke-width="1.5"/>
-      <line x1="13.1" y1="23.9" x2="15.9" y2="22.3" stroke="white" stroke-width="1.5"/>
-      <line x1="13.1" y1="16.1" x2="15.9" y2="17.7" stroke="white" stroke-width="1.5"/>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="6" fill="#ea4b71"/>
+      <circle cx="14" cy="7" r="2.2" fill="white"/>
+      <circle cx="20.5" cy="10.5" r="2.2" fill="white"/>
+      <circle cx="20.5" cy="17.5" r="2.2" fill="white"/>
+      <circle cx="14" cy="21" r="2.2" fill="white"/>
+      <circle cx="7.5" cy="17.5" r="2.2" fill="white"/>
+      <circle cx="7.5" cy="10.5" r="2.2" fill="white"/>
+      <circle cx="14" cy="14" r="3" fill="white"/>
+      <line x1="14" y1="9.2" x2="14" y2="11" stroke="white" stroke-width="1.2"/>
+      <line x1="18.6" y1="11.6" x2="17" y2="12.5" stroke="white" stroke-width="1.2"/>
+      <line x1="18.6" y1="16.4" x2="17" y2="15.5" stroke="white" stroke-width="1.2"/>
+      <line x1="14" y1="18.8" x2="14" y2="17" stroke="white" stroke-width="1.2"/>
+      <line x1="9.4" y1="16.4" x2="11" y2="15.5" stroke="white" stroke-width="1.2"/>
+      <line x1="9.4" y1="11.6" x2="11" y2="12.5" stroke="white" stroke-width="1.2"/>
     </svg>
     <span class="logo-text">n8n</span>
     <div class="logo-div"></div>
@@ -90,8 +91,8 @@ body{font-family:'Inter',sans-serif;background:var(--g50);color:var(--g900);min-
 
 <div class="wrap">
   <div class="pg-head">
-    <h1>Do I need an Enterprise license?</h1>
-    <p>Answer a few questions to find out if the free Community (Sustainable Use) License covers your use case.</p>
+    <h1>What can I do with n8n Community License?</h1>
+    <p>A guide to the <a href="https://github.com/n8n-io/n8n/blob/master/LICENSE.md" target="_blank">n8n Sustainable Use License</a>. Answer a few questions to find out if your use case is covered.</p>
   </div>
   <div class="prog-wrap">
     <div class="prog-lbl"><span id="prog-label">Getting started</span><span id="prog-pct">0%</span></div>
@@ -107,16 +108,19 @@ const N={
     {icon:'☁️',label:'n8n Cloud — I use or plan to use the hosted n8n.io service',next:'cloud'},
     {icon:'🖥️',label:'Self-hosted — I run n8n on my own server or infrastructure',next:'sh_usecase'}
   ]},
+
   cloud:{id:'cloud',q:'What Cloud plan are you on or considering?',tag:'Cloud — Step 2',opts:[
     {icon:'📦',label:'Starter or Pro plan',next:{type:'ok',title:"No additional licensing needed",body:"Your Starter or Pro plan terms govern your use. No SUL or Enterprise license action required."}},
     {icon:'🏢',label:'Enterprise Cloud',next:'cloud_use'}
   ]},
+
   cloud_use:{id:'cloud_use',q:'How are you using n8n Cloud?',tag:'Cloud — Step 3',opts:[
-    {icon:'🔧',label:'Internal business operations — my team automates our own processes',next:{type:'ok',title:"Covered by Enterprise Cloud",body:"Internal business operations are covered by your Enterprise Cloud plan."}},
+    {icon:'🔧',label:'Internal business operations only — my team uses n8n to automate our own processes',next:{type:'ok',title:"Covered by Enterprise Cloud",body:"Internal business operations are covered by your Enterprise Cloud plan."}},
     {icon:'🤝',label:'I build automations for clients who never access n8n',next:{type:'ok',title:"Covered by Enterprise Cloud",body:"Building automations for clients who only see outputs is covered by your Enterprise Cloud plan."}},
     {icon:'👥',label:'I want to give clients or end users access to n8n or automation features',next:{type:'warn',title:"Contact sales",body:"This use case requires a specific plan or agreement.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}},
-    {icon:'🔄',label:'I want to resell n8n Cloud subscriptions to my customers',next:{type:'no',title:"Not permitted",body:"Reselling n8n Cloud subscriptions is not permitted without a separate partner agreement.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
+    {icon:'🔄',label:'I want to resell n8n Cloud subscriptions to my customers',next:{type:'no',title:"Not permitted",body:"Reselling n8n Cloud subscriptions requires a separate reseller agreement.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_usecase:{id:'sh_usecase',q:'What best describes your use case?',tag:'Self-hosted — Step 2',opts:[
     {icon:'🏢',label:'Internal operations — I automate my own company\'s processes',next:'sh_a_who'},
     {icon:'🤝',label:'Consulting or agency — I build automations for clients',next:'sh_b_clients'},
@@ -124,72 +128,88 @@ const N={
     {icon:'🎓',label:'Education or training — workshops, courses, or research',next:'sh_d_access'},
     {icon:'🔬',label:'Non-profit, public institution, or personal use',next:'sh_e_commercial'}
   ]},
+
   sh_a_who:{id:'sh_a_who',q:'Who builds and manages the workflows?',tag:'A — Internal ops — Step 3',opts:[
     {icon:'👤',label:'Only my team — no external user ever touches n8n',next:'sh_a_creds'},
     {icon:'🖥️',label:'Employees access n8n through a custom UI I built to create their own automations',next:{type:'no',title:"Enterprise license required",body:"When employees use a custom UI to build or configure their own n8n-powered workflows, an Enterprise license is required.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_a_creds:{id:'sh_a_creds',q:'Do any workflows use individual employees\' own personal credentials at runtime?',tag:'A — Internal ops — Step 4',hint:"e.g. an employee's personal Gmail, Slack, or Google Drive — not a shared company service account.",opts:[
     {icon:'✅',label:'No — shared company credentials or service accounts only',next:'sh_a_ee'},
     {icon:'⚠️',label:'Yes — individual employee credentials used at runtime',next:{type:'warn',title:"Gray area — check first",body:"This is a gray area. Email license@n8n.io before proceeding.",link:'mailto:license@n8n.io',linkLabel:'Email license@n8n.io'}}
   ]},
+
   sh_a_ee:{id:'sh_a_ee',q:'Are you using any enterprise-only features?',tag:'A — Internal ops — Step 5',hint:"Enterprise-only features are identifiable by .ee. in their source file names.",opts:[
     {icon:'✅',label:'No — not using any .ee. features',next:{type:'ok',title:"Community license — you're fine",body:"Your internal operations use case is fully covered by the free Community (Sustainable Use) License."}},
     {icon:'🔒',label:'Yes — using features marked .ee. in source files',next:{type:'no',title:"Enterprise license required",body:"Using .ee. features without an Enterprise license is a breach of the license terms.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_b_clients:{id:'sh_b_clients',q:'What do your clients receive?',tag:'B — Consulting — Step 3',opts:[
     {icon:'📊',label:'Outputs only — clients never interact with n8n (reports, synced data, automated actions)',next:'sh_b_creds'},
     {icon:'🔑',label:'Clients log into my n8n instance or build their own workflows',next:{type:'no',title:"Enterprise license required",body:"Giving clients direct access to your n8n instance requires an Enterprise license.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}},
     {icon:'🖥️',label:'Clients interact with automation features through a custom UI I built',next:{type:'no',title:"Enterprise license required",body:"A custom UI does not change the nature of the use. Enterprise license required.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}},
     {icon:'📦',label:'I install a separate n8n instance on each client\'s own server',next:'sh_b_hosted'}
   ]},
+
   sh_b_creds:{id:'sh_b_creds',q:'Do your workflows use each client\'s own credentials to access their accounts?',tag:'B — Consulting — Step 4',hint:"e.g. the client's own Google, HubSpot, Slack, or WhatsApp API credentials — not yours.",opts:[
     {icon:'✅',label:'No — I use my own company credentials or service accounts throughout',next:'sh_b_ee'},
     {icon:'⚠️',label:'Yes — client-generated credentials are configured in n8n and used at runtime',next:{type:'warn',title:"Gray area — check first",body:"This is a gray area. Email license@n8n.io before proceeding.",link:'mailto:license@n8n.io',linkLabel:'Email license@n8n.io'}}
   ]},
+
   sh_b_ee:{id:'sh_b_ee',q:'Are you using any enterprise-only features?',tag:'B — Consulting — Step 5',opts:[
     {icon:'✅',label:'No — no .ee. features',next:{type:'ok',title:"Community license — you're fine",body:"Your consulting use case is fully covered by the Community (Sustainable Use) License."}},
     {icon:'🔒',label:'Yes — using .ee. features',next:{type:'no',title:"Enterprise license required",body:"Enterprise-only features require an Enterprise license.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_b_hosted:{id:'sh_b_hosted',q:'After setup, does the client operate n8n independently with no ongoing access from you?',tag:'B — Consulting — Step 6',opts:[
     {icon:'✅',label:'Yes — it becomes fully their instance to run',next:{type:'ok',title:"Community license — you're fine",body:"Installing and handing over an n8n instance that the client then operates independently is covered by the Community License."}},
     {icon:'🔧',label:'No — I retain access and manage the instance on their behalf',next:'sh_b_creds'}
   ]},
+
   sh_c_where:{id:'sh_c_where',q:'Where does n8n run relative to your customers?',tag:'C — Product — Step 3',opts:[
     {icon:'🖥️',label:'On my own server — customers never interact with the n8n instance directly',next:'sh_c_ui'},
     {icon:'📦',label:'At customer premises — I ship n8n as part of my product for customers to self-host',next:{type:'no',title:"Enterprise license required",body:"Distributing n8n to customers as part of a product they self-host requires an Enterprise license.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_c_ui:{id:'sh_c_ui',q:'What do your end users interact with?',tag:'C — Product — Step 4',opts:[
     {icon:'✅',label:"Only my product's own interface — n8n runs invisibly in the background",next:'sh_c_creds'},
     {icon:'⚙️',label:'An automation or workflow builder feature, even via a custom UI I built',next:{type:'no',title:"Enterprise license required",body:"End users building or configuring workflows through any interface requires an Enterprise license.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}},
     {icon:'👥',label:'A multi-tenant environment where different customers have separate workflow spaces',next:{type:'no',title:"Enterprise license required",body:"Multi-tenant architectures with separate customer workflow environments require an Enterprise license.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_c_creds:{id:'sh_c_creds',q:"Do your workflows use end users' own credentials to access their accounts?",tag:'C — Product — Step 5',hint:"e.g. a user's personal Gmail, Salesforce, or Stripe account — not your company's shared credentials.",opts:[
     {icon:'✅',label:"No — only my company's own API keys and service accounts",next:'sh_c_value'},
     {icon:'🔑',label:'Yes — user-owned credentials are used by n8n workflows at runtime',next:{type:'no',title:"Enterprise license required",body:"Using end users' own credentials in n8n workflows requires an Enterprise license.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_c_value:{id:'sh_c_value',q:'Is automation the core value proposition of your product?',tag:'C — Product — Step 6',hint:"Ask: if n8n disappeared tomorrow, would your product still exist and deliver value to customers?",opts:[
     {icon:'✅',label:"No — n8n is a background utility; my product's value comes from something else",next:'sh_c_ee'},
     {icon:'⚙️',label:'Yes — workflow building or automation is what customers are paying for',next:{type:'no',title:"Enterprise license required",body:'When automation is the core commercial value of your product, the SUL\'s "value derives substantially" clause applies.',link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_c_ee:{id:'sh_c_ee',q:'Are you using any enterprise-only features?',tag:'C — Product — Step 7',opts:[
     {icon:'✅',label:'No — no .ee. features',next:{type:'ok',title:"Community license — you're fine",body:"Your product use case is covered by the Community (Sustainable Use) License."}},
     {icon:'🔒',label:'Yes — using .ee. features',next:{type:'no',title:"Enterprise license required",body:"Enterprise-only features require an Enterprise license.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_d_access:{id:'sh_d_access',q:'What do participants receive?',tag:'D — Education — Step 3',opts:[
     {icon:'⏱️',label:'Temporary hands-on access during the session only — no ongoing access after',next:'sh_d_creds'},
     {icon:'🔑',label:'Their own n8n account or access that persists after the session',next:{type:'warn',title:"Gray area — check first",body:"Providing persistent post-session access is a gray area. Email license@n8n.io before proceeding.",link:'mailto:license@n8n.io',linkLabel:'Email license@n8n.io'}},
     {icon:'📦',label:'A deployed n8n instance as part of a paid course or product',next:{type:'warn',title:"Gray area — check first",body:"Delivering a deployed n8n instance as part of a paid course is a gray area. Email license@n8n.io before proceeding.",link:'mailto:license@n8n.io',linkLabel:'Email license@n8n.io'}}
   ]},
+
   sh_d_creds:{id:'sh_d_creds',q:'Do participants connect their own third-party accounts during the session?',tag:'D — Education — Step 4',hint:"e.g. their own Google, GitHub, Slack, or OpenAI accounts — not demo credentials you provide.",opts:[
     {icon:'✅',label:'No — only demo accounts or credentials I control are used',next:'sh_d_paying'},
     {icon:'⚠️',label:'Yes — participants authenticate their own accounts',next:{type:'warn',title:"Gray area — check first",body:"Participants authenticating their own accounts is a gray area. Email license@n8n.io before proceeding.",link:'mailto:license@n8n.io',linkLabel:'Email license@n8n.io'}}
   ]},
+
   sh_d_paying:{id:'sh_d_paying',q:'Is n8n itself what participants are paying for?',tag:'D — Education — Step 5',opts:[
     {icon:'✅',label:'No — the fee is for the training content, curriculum, or instruction',next:{type:'ok',title:"Community license — you're fine",body:"Using n8n for live educational demonstrations where participants pay for training content is covered by the Community License."}},
     {icon:'💰',label:'Yes — access to n8n is the product being sold',next:{type:'no',title:"Enterprise license required",body:"When n8n access itself is what participants are paying for, an Enterprise license is required.",link:'mailto:sales@n8n.io',linkLabel:'Contact sales@n8n.io'}}
   ]},
+
   sh_e_commercial:{id:'sh_e_commercial',q:'Is your use commercial?',tag:'E — Non-profit / personal — Step 3',opts:[
-    {icon:'✅',label:'No — internal operations, research, volunteer coordination, or public service',next:{type:'ok',title:"Community license — you're fine",body:"Non-commercial and personal use is explicitly permitted with no restrictions. This includes non-profits, municipalities, universities, and research institutions."}},
+    {icon:'✅',label:'No — internal operations, research, volunteer coordination, or public service delivery',next:{type:'ok',title:"Community license — you're fine",body:"Non-commercial and personal use is explicitly permitted with no restrictions. This includes non-profits, municipalities, universities, and research institutions."}},
     {icon:'🔄',label:'It may become commercial in the future',next:{type:'warn',title:"Check before you launch",body:"Email license@n8n.io to confirm the transition path before launching any commercial use.",link:'mailto:license@n8n.io',linkLabel:'Email license@n8n.io'}},
     {icon:'💰',label:'Yes — my organisation charges for a product or service that uses n8n',next:'sh_c_where'}
   ]}
@@ -234,7 +254,7 @@ function go(id){
   renderBC();
   const node=N[id];
   if(!node)return;
-  const showBack=H.length>1;
+  const isFirst=H.length===1;
   let html='<div class="card">';
   if(node.tag)html+=`<div class="badge">${node.tag}</div>`;
   html+=`<div class="q">${node.q}</div>`;
@@ -245,10 +265,12 @@ function go(id){
     html+=`<button class="opt" onclick="choose(${ns})"><span class="opt-icon">${opt.icon}</span><span class="opt-text">${opt.label}</span></button>`;
   });
   html+='</div></div>';
-  html+='<div class="nav">';
-  if(showBack)html+=`<button class="btn-back" onclick="goBack()">&#8592; Back</button>`;
-  html+=`<button class="btn-restart" onclick="restart()">&#8635; Start over</button>`;
-  html+='</div>';
+  if(!isFirst){
+    html+='<div class="nav">';
+    html+=`<button class="btn-back" onclick="goBack()">&#8592; Back</button>`;
+    html+=`<button class="btn-restart" onclick="restart()">&#8635; Start over</button>`;
+    html+='</div>';
+  }
   document.getElementById('screen').innerHTML=html;
 }
 
